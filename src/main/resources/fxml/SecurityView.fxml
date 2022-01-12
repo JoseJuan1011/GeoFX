@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane fx:id="view" hgap="5.0" prefHeight="212.0" prefWidth="252.0" vgap="5.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
+<GridPane fx:id="view" hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <rowConstraints>
       <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
       <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
@@ -47,7 +47,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel" />
+            <CheckBox fx:id="proxyDetectedCheckBox" mnemonicParsing="false" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -55,12 +55,12 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="43.0" GridPane.rowIndex="3">
          <children>
-            <Label text="TYPE">
+            <Label text="POTENTIAL THREAT TYPES">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel1" />
+            <Label fx:id="potentialThreatTypesLabel" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -68,12 +68,12 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="8.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Label text="TYPE">
+            <Label text="THREAT LEVEL">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel11" />
+            <CheckBox fx:id="threatLevelCheckBox" mnemonicParsing="false" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -81,12 +81,12 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="8.0" GridPane.rowIndex="2">
          <children>
-            <Label text="TYPE">
+            <Label text="CRAWLER DETECTED?">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel111" />
+            <CheckBox fx:id="crawlerDetectedCheckBox" mnemonicParsing="false" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -94,12 +94,12 @@
       </VBox>
       <VBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="8.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label text="TYPE">
+            <Label text="TOR DETECTED? ">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="typeLabel1111" />
+            <CheckBox fx:id="torDetectedCheckBox" mnemonicParsing="false" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

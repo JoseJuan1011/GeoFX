@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="view" hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="view" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="229.0" prefWidth="282.0" vgap="5.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="latitudeLabel" />
+            <Label fx:id="latitudeLabel" text="Latitude" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -43,7 +43,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="ipLocationLabel" />
+            <Label fx:id="ipLocationLabel" text="IP Location" />
             <ImageView fx:id="imageViewFlag" pickOnBounds="true" preserveRatio="true" />
          </children>
          <padding>
@@ -57,7 +57,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="cityStateLabel" />
+            <Label fx:id="cityStateLabel" text="City, State" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -70,7 +70,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="languageLabel" />
+            <Label fx:id="languageLabel" text="Language" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -83,7 +83,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="callingCodeLabel" />
+            <Label fx:id="callingCodeLabel" text="Calling Code" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -96,7 +96,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="longitudeLabel" />
+            <Label fx:id="longitudeLabel" text="Longitude" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -109,7 +109,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="zipCodeLabel" />
+            <Label fx:id="zipCodeLabel" text="Zip Code" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -122,7 +122,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="timeZoneLabel" />
+            <Label fx:id="timeZoneLabel" text="Time Zone" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -135,7 +135,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="currencyLabel" />
+            <Label fx:id="currencyLabel" text="Currency" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

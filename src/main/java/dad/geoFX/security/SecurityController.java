@@ -36,7 +36,7 @@ public class SecurityController implements Initializable {
     @FXML
     private GridPane view;
 	
-    private SecurityModel model;
+    private static SecurityModel model;
     
 	public SecurityController() {
 		try {
@@ -56,8 +56,15 @@ public class SecurityController implements Initializable {
 		Bindings.bindBidirectional(potentialThreatTypesLabel.textProperty(), model.potentialThreatTypesProperty());
 		Bindings.bindBidirectional(proxyDetectedCheckBox.selectedProperty(), model.proxyDetectedProperty());
 		Bindings.bindBidirectional(securityMessageLabel.textProperty(), model.securityMessageProperty());
-		Bindings.bindBidirectional(securityMessageLabel.textProperty(), model.securityMessageProperty());
 		Bindings.bindBidirectional(torDetectedCheckBox.selectedProperty(), model.torDetectedProperty());
+	}
+	
+	public static void changeSecurity(Root root) {
+		model.setCrawlerDetected(root.getSecurity().isIs_crawler());
+		model.setPotentialThreatTypes(root.getSecurity().getThreat_types()+"");
+		model.setProxyDetected(root.getSecurity().isIs_proxy());
+//		model.setSecurityMessage(root.getSecurity());
+		model.setTorDetected(root.getSecurity().isIs_tor());
 	}
 
 	public CheckBox getCrawlerDetectedCheckBox() {

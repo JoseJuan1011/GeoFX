@@ -13,6 +13,7 @@ import com.squareup.okhttp.Response;
 
 import dad.geoFX.connection.ConnectionController;
 import dad.geoFX.location.LocationController;
+import dad.geoFX.resources.Ip;
 import dad.geoFX.resources.Root;
 import dad.geoFX.security.SecurityController;
 import javafx.concurrent.Task;
@@ -63,6 +64,41 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		Task<Ip> getIp = new Task<Ip>() {
+
+			@Override
+			protected Ip call() throws Exception {
+				OkHttpClient client = new OkHttpClient();
+
+				Request request = new Request.Builder()
+					.url("https://api.ipify.org/?format=json")
+					.get()
+					.build();
+
+				Response response = client.newCall(request).execute();
+				
+				String json = response.body().string();
+				Gson gson = new GsonBuilder().create();
+				
+				Ip ip = gson.fromJson(json, Ip.class);
+				return ip;
+			}
+		
+		};
+		
+		getIp.setOnSucceeded(e -> {
+			try {
+				ip_TextField.setText(getIp.get().getIp());
+			} catch (InterruptedException | ExecutionException e1) {
+				e1.printStackTrace();
+			}
+		});
+		
+		getIp.setOnFailed(e -> {
+			getIp.getException().printStackTrace();
+		});
+		new Thread(getIp).start();
+		
 		locationController = new LocationController();
 		connectionController = new ConnectionController();
 		securityController = new SecurityController();
@@ -81,7 +117,7 @@ public class MainController implements Initializable {
 				OkHttpClient client = new OkHttpClient();
 
 				Request request = new Request.Builder()
-					.url("https://ipapi.com/ip_api.php?ip=8.8.8.8")
+					.url("https://ipapi.com/ip_api.php?ip="+ip_TextField.getText())
 					.get()
 					.build();
 
@@ -99,12 +135,20 @@ public class MainController implements Initializable {
 		getAPIDataTask.setOnSucceeded(e -> {
 			try {
 				LocationController.changeLocation(getAPIDataTask.get());
+				ConnectionController.changeConnection(getAPIDataTask.get());
+				SecurityController.changeSecurity(getAPIDataTask.get());
 			} catch (InterruptedException e1) {
 				e1.printStackTrace();
 			} catch (ExecutionException e1) {
 				e1.printStackTrace();
 			}
 		});
+		
+		getAPIDataTask.setOnFailed(e -> {
+			getAPIDataTask.getException().printStackTrace();
+		});
+		
+		new Thread(getAPIDataTask).start();
     }
 	
 	

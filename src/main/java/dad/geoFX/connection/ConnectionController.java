@@ -32,7 +32,7 @@ public class ConnectionController implements Initializable {
     @FXML
     private GridPane view;
     
-    private ConnectionModel model;
+    private static ConnectionModel model;
 	
 	public ConnectionController() {
 		try {
@@ -53,6 +53,14 @@ public class ConnectionController implements Initializable {
 		Bindings.bindBidirectional(ipLabel.textProperty(), model.ipProperty());
 		Bindings.bindBidirectional(registeredIspLabel.textProperty(), model.registeredIspProperty());
 		Bindings.bindBidirectional(typeLabel.textProperty(), model.typeProperty());
+	}
+	
+	public static void changeConnection(Root root) {
+		model.setAsn(root.getConnection().getAsn()+"");
+		model.setHostname(root.getHostname());
+		model.setIp(root.getIp());
+		model.setRegisteredIsp(root.getConnection().getIsp());
+		model.setType(root.getType());
 	}
 
 	public Label getAsnLabel() {
